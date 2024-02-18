@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Printing Multiple Pages", "Printing Multiple Pages.csproj", "{B33975FA-FE03-460C-A15E-9CA1529F8C5E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B33975FA-FE03-460C-A15E-9CA1529F8C5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B33975FA-FE03-460C-A15E-9CA1529F8C5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B33975FA-FE03-460C-A15E-9CA1529F8C5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B33975FA-FE03-460C-A15E-9CA1529F8C5E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3D7AC76E-7DF5-48EF-96AF-A24F78584292}
+	EndGlobalSection
+EndGlobal
