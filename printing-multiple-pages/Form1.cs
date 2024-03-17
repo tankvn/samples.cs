@@ -83,23 +83,23 @@ namespace Printing_Multiple_Pages
 		{
 			ypos = 1;
 			float pageheight = ev.MarginBounds.Height;
+
 			//Create a Graphics object
 			Graphics g = ev.Graphics;
+
 			//Get installed fonts
-			InstalledFontCollection ifc =
-			new InstalledFontCollection();
+			InstalledFontCollection ifc = new InstalledFontCollection();
+
 			//Get font families
 			FontFamily[] ffs = ifc.Families;
+
 			//Draw string on the paper
-			while (ypos + 60 < pageheight &&
-			fontposition < ffs.GetLength(0))
+			while (ypos + 60 < pageheight && fontposition < ffs.GetLength(0))
 			{
-				//Get the font name 
-				Font f =
-				new Font(ffs[fontposition].GetName(0), 25);
+				//Get the font name
+				Font f = new Font(ffs[fontposition].GetName(0), 25);
 				//Draw string
-				g.DrawString(ffs[fontposition].GetName(0), f,
-				new SolidBrush(Color.Black), 1, ypos);
+				g.DrawString(ffs[fontposition].GetName(0), f, new SolidBrush(Color.Black), 1, ypos);
 				fontposition = fontposition + 1;
 				ypos = ypos + 60;
 			}
