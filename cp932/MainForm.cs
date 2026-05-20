@@ -301,7 +301,7 @@ public class MainForm : Form
         {
             try
             {
-                var (enc, bomLen) = EncodingDetector.DetectEncoding(currentFileData);
+                var (enc, bomLen) = CsvUtility.DetectEncoding(currentFileData);
                 if (cboEncoding.SelectedIndex > 0)
                     enc = GetSelectedEncoding();
 
@@ -389,36 +389,24 @@ public class MainForm : Form
     {
         if (currentFileData == null) return;
 
-        Encoding enc;
-        int bomLen;
+        // Xác định encoding: tự động hoặc thủ công
+        Encoding? manualEncoding = cboEncoding.SelectedIndex > 0 ? GetSelectedEncoding() : null;
 
-        if (cboEncoding.SelectedIndex == 0) // Tự động
-        {
-            (enc, bomLen) = EncodingDetector.DetectEncoding(currentFileData);
-        }
-        else
-        {
-            enc = GetSelectedEncoding();
-            bomLen = DetectBomLength(currentFileData);
-        }
+        // Gọi CsvUtility để đọc dữ liệu
+        var (rows, enc, delimiter) = manualEncoding != null
+            ? CsvUtility.ReadFromBytes(currentFileData, manualEncoding)
+            : CsvUtility.ReadFromBytes(currentFileData);
 
         currentEncoding = enc;
-
-        string content = enc.GetString(currentFileData, bomLen, currentFileData.Length - bomLen);
-
-        // Phát hiện delimiter
-        currentDelimiter = CsvParser.DetectDelimiter(content);
-
-        // Parse CSV
-        var rows = CsvParser.Parse(content, currentDelimiter);
+        currentDelimiter = delimiter;
 
         // Hiển thị trong DataGridView
         DisplayData(rows);
 
         // Cập nhật status bar
-        lblEncoding.Text = $"Encoding: {EncodingDetector.GetDisplayName(enc)}";
+        lblEncoding.Text = $"Encoding: {CsvUtility.GetEncodingDisplayName(enc)}";
         lblRowCount.Text = $"Dòng: {rows.Count}";
-        lblDelimiter.Text = $"Delimiter: {GetDelimiterName(currentDelimiter)}";
+        lblDelimiter.Text = $"Delimiter: {CsvUtility.GetDelimiterDisplayName(delimiter)}";
     }
 
     private void ReloadWithEncoding(Encoding enc)
@@ -522,25 +510,7 @@ public class MainForm : Form
         };
     }
 
-    private static int DetectBomLength(byte[] data)
-    {
-        if (data.Length >= 3 && data[0] == 0xEF && data[1] == 0xBB && data[2] == 0xBF) return 3;
-        if (data.Length >= 2 && data[0] == 0xFF && data[1] == 0xFE) return 2;
-        if (data.Length >= 2 && data[0] == 0xFE && data[1] == 0xFF) return 2;
-        return 0;
-    }
 
-    private static string GetDelimiterName(char delimiter)
-    {
-        return delimiter switch
-        {
-            ',' => "Comma (,)",
-            '\t' => "Tab (\\t)",
-            ';' => "Semicolon (;)",
-            '|' => "Pipe (|)",
-            _ => delimiter.ToString()
-        };
-    }
 
     private void ApplyDarkTheme()
     {
