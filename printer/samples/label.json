@@ -1,0 +1,93 @@
+{
+  "dpi": 203,
+  "width": 799,
+  "height": 400,
+  "gap": 24,
+  "copies": 1,
+  "darkness": null,
+  "jobName": "{PartNo}",
+  "elements": [
+    {
+      "element": "box",
+      "width": 767,
+      "height": 368,
+      "thickness": 3,
+      "x": 16,
+      "y": 16,
+      "rotation": 0
+    },
+    {
+      "element": "text",
+      "text": "{Title}",
+      "fontHeight": 40,
+      "fontWidth": 0,
+      "style": "Auto",
+      "fontName": null,
+      "x": 40,
+      "y": 32,
+      "rotation": 0
+    },
+    {
+      "element": "line",
+      "length": 767,
+      "horizontal": true,
+      "thickness": 2,
+      "x": 16,
+      "y": 88,
+      "rotation": 0
+    },
+    {
+      "element": "text",
+      "text": "PART: {PartNo}",
+      "fontHeight": 28,
+      "fontWidth": 0,
+      "style": "Auto",
+      "fontName": null,
+      "x": 40,
+      "y": 104,
+      "rotation": 0
+    },
+    {
+      "element": "text",
+      "text": "QTY : {Qty}",
+      "fontHeight": 28,
+      "fontWidth": 0,
+      "style": "Auto",
+      "fontName": null,
+      "x": 40,
+      "y": 144,
+      "rotation": 0
+    },
+    {
+      "element": "barcode",
+      "type": "Code128",
+      "data": "{PartNo}",
+      "height": 80,
+      "moduleWidth": 2,
+      "humanReadable": true,
+      "x": 40,
+      "y": 192,
+      "rotation": 0
+    },
+    {
+      "element": "qr",
+      "data": "{PartNo};{Qty};{Lot}",
+      "cellSize": 4,
+      "errorCorrection": "M",
+      "x": 575,
+      "y": 112,
+      "rotation": 0
+    },
+    {
+      "element": "text",
+      "text": "{Name}",
+      "fontHeight": 32,
+      "fontWidth": 0,
+      "style": "Auto",
+      "fontName": null,
+      "x": 40,
+      "y": 320,
+      "rotation": 0
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "printers": [
+    {
+      "name": "SATO-CL4NX",
+      "brand": "SATO",
+      "model": "CL4NX Plus",
+      "dpi": 305,
+      "language": "SBPL",
+      "encoding": "shift_jis",
+      "routes": [
+        "sato4://192.168.1.50?data=1024&status=1025",
+        "tcp://192.168.1.50:9100",
+        "spooler://SATO CL4NX Plus 305dpi"
+      ],
+      "retryCount": 2,
+      "retryDelayMs": 1000,
+      "languageOptions": {
+        "kanjiFont": "K9B",
+        "jobId": "01"
+      }
+    },
+    {
+      "name": "ZEBRA-ZT411",
+      "brand": "Zebra",
+      "model": "ZT411",
+      "dpi": 203,
+      "language": "ZPL",
+      "encoding": "utf-8",
+      "routes": [
+        "tcp://192.168.1.51:9100",
+        "spooler://ZDesigner ZT411-203dpi ZPL"
+      ],
+      "retryCount": 2,
+      "retryDelayMs": 1000,
+      "languageOptions": {
+        "unicodeFont": "E:ANMDJ.TTF"
+      }
+    },
+    {
+      "name": "GODEX-G500",
+      "brand": "Godex",
+      "model": "G500",
+      "dpi": 203,
+      "language": "EZPL",
+      "encoding": "utf-8",
+      "routes": [
+        "tcp://192.168.1.52:9100",
+        "spooler://Godex G500"
+      ],
+      "retryCount": 2,
+      "retryDelayMs": 1000,
+      "languageOptions": {
+        "enableImmediateStatus": "true"
+      }
+    },
+    {
+      "name": "FUJIFILM-APEOS",
+      "brand": "FUJIFILM",
+      "model": "ApeosPort C3570",
+      "dpi": 600,
+      "language": "PJL",
+      "encoding": "utf-8",
+      "routes": [
+        "tcp://192.168.1.60:9100",
+        "lpr://192.168.1.60/lp"
+      ],
+      "retryCount": 2,
+      "retryDelayMs": 1000,
+      "languageOptions": {
+        "language": "PDF",
+        "paper": "A4"
+      }
+    },
+    {
+      "name": "SIMULATOR",
+      "brand": "SATO",
+      "model": "PrinterHub.Simulator",
+      "dpi": 203,
+      "language": "SBPL",
+      "encoding": "shift_jis",
+      "routes": [
+        "sato4://127.0.0.1?data=1024&status=1025",
+        "tcp://127.0.0.1:9100",
+        "lpr://127.0.0.1:5515/lp"
+      ],
+      "retryCount": 2,
+      "retryDelayMs": 1000,
+      "languageOptions": {}
+    }
+  ]
+}
