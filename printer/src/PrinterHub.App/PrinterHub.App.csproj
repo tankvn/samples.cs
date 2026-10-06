@@ -6,7 +6,6 @@
     <RootNamespace>PrinterHub.App</RootNamespace>
     <AssemblyName>PrinterHub</AssemblyName>
     <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
-    <SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\PrinterHub.Core\PrinterHub.Core.csproj" />
